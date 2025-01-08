@@ -18,14 +18,14 @@ public class Movement extends LinearOpMode {
         DcMotor backRightMotor = hardwareMap.dcMotor.get("backRightMotor");
         DcMotor liftMotor = hardwareMap.dcMotor.get("liftMotor");
         Servo extendServo = hardwareMap.servo.get("extendServo");
-        Servo grabServo = hardwareMap.servo.get("grabServo")
+        Servo grabServo = hardwareMap.servo.get("grabServo");
 
         // Reverse the right side motors. This may be wrong for your setup.
         // If your robot moves backwards when commanded to go forwards,
         // reverse the left side instead.
         // See the note about this earlier on this page.
-        frontRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
-        backRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        backLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
         waitForStart();
 
@@ -50,25 +50,27 @@ public class Movement extends LinearOpMode {
             frontRightMotor.setPower(frontRightPower);
             backRightMotor.setPower(backRightPower);
 
+            // REMEMBER TO TURN OFF ROBOT
             if (gamepad1.dpad_up) {
                 liftMotor.setPower(-1);
+
             } else if (gamepad1.dpad_down) {
                 liftMotor.setPower(-0.1);
+
             } else {
                 liftMotor.setPower(-0.3);
             }
-            telemetry.addData("lift motor power:", liftMotor.getPower());
+            telemetry.addData("liftMotor power:", liftMotor.getPower());
+
 
             if (gamepad1.right_bumper) {
                 extendServo.setPosition(1);
-            }else if (gamepad1.left_bumper) {
+            }  else if (gamepad1.left_bumper) {
                 extendServo.setPosition(0.0);
             }
             telemetry.update();
 
-            if(gamepad1.) {
-                grabServo
-            }
+
         }
     }
 }
