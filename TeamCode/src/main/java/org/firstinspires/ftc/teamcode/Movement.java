@@ -32,9 +32,9 @@ public class Movement extends LinearOpMode {
         if (isStopRequested()) return;
 
         while (opModeIsActive()) {
-            double y = -gamepad1.left_stick_y; // Remember, Y stick value is reversed
-            double x = gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
-            double rx = gamepad1.right_stick_x;
+            double y = -gamepad1.left_stick_x; // Remember, Y stick value is reversed
+            double x = gamepad1.left_stick_y * 1.1; // Counteract imperfect strafing
+            double rx = gamepad1.right_stick_y;
 
             // Denominator is the largest motor power (absolute value) or 1
             // This ensures all the powers maintain the same ratio,
